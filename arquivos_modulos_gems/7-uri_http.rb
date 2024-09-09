@@ -1,0 +1,23 @@
+require 'uri'
+require 'net/http'
+
+url = URI.parse('https://www.example.com')
+
+# puts url
+# puts URI.class
+
+# pegando a classe HTTP dentro do módulo Net, 
+http = Net::HTTP.new(url.host, url.port)
+
+http.use_ssl = (url.scheme == 'https')
+
+request = Net::HTTP::Get.new(url)
+
+response = http.request(request)
+
+if response.is_a?(Net::HTTPSuccess)
+  puts "Status: #{response.code} #{response.message}"
+  puts response.body
+else 
+  puts "Não pôde ser feita a requisição. Status: #{response.code}"
+end
