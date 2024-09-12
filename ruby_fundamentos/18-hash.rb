@@ -8,6 +8,9 @@ puts movie
 movie2 = { :name => "Vingadores", :year => "2012"}
 puts movie2
 
+# a forma mais moderna de criar hashes:
+puts movie3 = { name: "Star Wars", year: 1977 }
+
 # iterando valores (for, while, each)
 
 puts movie.keys
